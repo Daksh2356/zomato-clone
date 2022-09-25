@@ -4,7 +4,7 @@ import { menuModel } from "./Menu";
 import { imageModel } from "./Image";
 import { reviewModel } from "./Review";
 import { orderModel } from "./Order";
-import userModel from "./User";
+import { userModel } from "./User";
 
 export {
   foodModel,
