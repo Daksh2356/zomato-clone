@@ -2,9 +2,12 @@ import express from "express";
 import dotenv from "dotenv";
 
 // Database connection
-import ConnectDB from "../server/database/connection";
+import ConnectDB from "./database/connection";
 
-import Auth from "./api/auth/index";
+// API connection
+import Auth from "./api/auth";
+import Food from "./api/food";
+import Restaurant from "./api/restaurant";
 
 dotenv.config();
 
@@ -19,8 +22,16 @@ zomato.get("/", (req, res) => {
   });
 });
 
-// /auth/signup
+// API routes
+
+// auth route
 zomato.use("/auth", Auth);
+
+// food route
+zomato.use("/food", Food);
+
+// restaurant route
+zomato.use("/restaurant", Restaurant);
 
 zomato.listen(port, () => {
   ConnectDB()

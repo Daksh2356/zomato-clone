@@ -29,7 +29,7 @@ UserSchema.methods.generateJwtToken = function () {
 
 // static/ helper methods
 
-UserSchema.statics.findByEmailandPhone = async ({ email, phoneNumber }) => {
+UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
   // at the time of signup
 
   const checkUserEmail = await UserModel.findOne({ email });
@@ -42,7 +42,7 @@ UserSchema.statics.findByEmailandPhone = async ({ email, phoneNumber }) => {
   return false;
 };
 
-UserSchema.statics.findByEmailandPassword = async ({ email, password }) => {
+UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
   // at the time of login
   const user = await UserModel.findOne({ email });
   // password can't be used as it is in encrypted form
@@ -53,10 +53,10 @@ UserSchema.statics.findByEmailandPassword = async ({ email, password }) => {
 
   // Compare passwords
 
-  const doesPasswordMatch = await bcrypt.compare(password, user.password);
+  const doesPasswordMatch = bcrypt.compare(password, user.password);
 
   if (!doesPasswordMatch) {
-    throw new Error("Invalid credentails.");
+    throw new Error("Invalid credentials.");
   }
 
   return user;
