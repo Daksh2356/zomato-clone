@@ -14,6 +14,8 @@ import Auth from "./api/auth";
 import Food from "./api/food";
 import Restaurant from "./api/restaurant";
 import User from "./api/user";
+import Menu from "./api/menu";
+import Order from "./api/order";
 
 dotenv.config();
 
@@ -24,7 +26,13 @@ const zomato = express();
 const port = 4000;
 
 zomato.use(express.json());
-zomato.use(session({ secret: "ZomatoApp" }));
+zomato.use(
+  session({
+    secret: process.env.JWTSECRET,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 zomato.use(passport.initialize());
 zomato.use(passport.session());
 
@@ -46,12 +54,18 @@ zomato.use("/food", Food);
 zomato.use("/restaurant", Restaurant);
 
 // user route
-zomato.use("/user", passport.authenticate("jwt", { session: false }), User);
+zomato.use("/user", User);
+
+// menu route
+zomato.use("/menu", Menu);
+
+// order route
+zomato.use("/order", Order);
 
 zomato.listen(port, () => {
   ConnectDB()
     .then(() => {
-      console.log("Server run successful !! ");
+      console.log("Server ran successfully !! ");
     })
     .catch((error) => {
       console.log("Server run was success but database connection failed");

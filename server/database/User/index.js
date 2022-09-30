@@ -24,7 +24,7 @@ const UserSchema = new mongoose.Schema(
 
 UserSchema.methods.generateJwtToken = function () {
   // at the time of signup and login
-  return jwt.sign({ user: this._id }, "ZomatoApp");
+  return jwt.sign({ user: this._id }, process.env.JWTSECRET);
 };
 
 // static/ helper methods
