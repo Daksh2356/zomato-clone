@@ -81,7 +81,7 @@ Router.get("/c/:category", async (req, res) => {
 /**
  * Route    /:_id
  * Desc     Create a new Food item
- * Params   none
+ * Params   _id
  * Access   Public
  * Method   POST
  */

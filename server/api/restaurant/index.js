@@ -32,7 +32,7 @@ Router.get("/", async (req, res) => {
 /**
  * Route    /:_id
  * Desc     Get restaurant based on id
- * Params   none
+ * Params   _id
  * Access   Public
  * Method   GET
  */
@@ -57,7 +57,7 @@ Router.get("/:_id", async (req, res) => {
 /**
  * Route    /search/:searchString
  * Desc     Get restaurant details based on the searchString
- * Params   search
+ * Params   searchString
  * Access   Public
  * Method   GET
  */
