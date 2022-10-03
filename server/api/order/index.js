@@ -24,7 +24,7 @@ Router.get(
           error: "No orders found !! ",
         });
       }
-      return res.json({ orders: getOrders });
+      return res.status(200).json({ orders: getOrders });
     } catch (error) {
       return res.status(500).json({
         error: error.message,
@@ -49,6 +49,8 @@ Router.put(
       const { user } = req;
       const { orderDetails } = req.body;
 
+      //  Task : to validate orderDetails
+
       const addNewOrder = await OrderModel.findOneAndUpdate(
         {
           user: user._id,
@@ -62,7 +64,7 @@ Router.put(
           new: true,
         }
       );
-      return res.json({
+      return res.status(200).json({
         order: { addNewOrder },
       });
     } catch (error) {
