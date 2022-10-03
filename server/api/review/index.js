@@ -1,6 +1,7 @@
 import express from "express";
 import passport from "passport";
 import { ReviewModel } from "../../database/allModels";
+import { validateId } from "../../validation/common.validation";
 
 const Router = express.Router();
 
@@ -15,10 +16,16 @@ const Router = express.Router();
 Router.get("/:resId", async (req, res) => {
   try {
     const { resId } = req.params;
-    const reviews = await ReviewModel.find({ restaurant: resId }).sort({
+    await validateId(req.params);
+    const review = await ReviewModel.find({ restaurant: resId }).sort({
       createdAt: -1,
     });
-    return res.json({ reviews });
+    if (!review) {
+      return res.status(404).json({
+        error: " No reviews found !!  ",
+      });
+    }
+    return res.status(200).json({ review });
   } catch (error) {
     return res.status(500).json({
       error: error.message,
@@ -42,8 +49,12 @@ Router.post(
       const { _id } = req.user;
       const { reviewData } = req.body;
       const review = await ReviewModel.create({ ...reviewData, user: _id });
-
-      return res.json({ review });
+      if (!review) {
+        return res.status(404).json({
+          error: " No reviews found !!  ",
+        });
+      }
+      return res.status(200).json({ review });
     } catch (error) {
       return res.status(500).json({
         error: error.message,
@@ -67,6 +78,7 @@ Router.delete(
     try {
       const { user } = req;
       const { id } = req.params;
+      await validateId(req.params);
 
       const data = await ReviewModel.findOneAndDelete({
         _id: id,

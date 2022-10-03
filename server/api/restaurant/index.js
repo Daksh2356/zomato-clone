@@ -1,5 +1,10 @@
 import express from "express";
 import { RestaurantModel } from "../../database/allModels";
+import {
+  validateId,
+  validatesearchString,
+} from "../../validation/common.validation";
+import { validateRestaurantCity } from "../../validation/restaurant.validation";
 
 const Router = express.Router();
 
@@ -14,10 +19,11 @@ const Router = express.Router();
 Router.get("/", async (req, res) => {
   try {
     //http://localhost:4000/restaurant/?city=ncr
-    const { city } = req.query();
+    const { city } = req.query;
+    await validateRestaurantCity(req.query);
     const restaurants = await RestaurantModel.find(city);
     if (restaurants.length === 0) {
-      return res.json({
+      return res.status(404).jsonjson({
         error: `No restaurant found in ${city} !! `,
       });
     }
@@ -40,9 +46,10 @@ Router.get("/", async (req, res) => {
 Router.get("/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
+    await validateId(req.params);
     const restaurant = await RestaurantModel.findById(_id);
     if (!restaurant) {
-      return res.json({
+      return res.status(404).json({
         error: "No restaurant found !! ",
       });
     }
@@ -65,11 +72,12 @@ Router.get("/:_id", async (req, res) => {
 Router.get("/search/:searchString", async (req, res) => {
   try {
     const { searchString } = req.params;
+    await validatesearchString(req.params);
     const restaurants = await RestaurantModel.find({
       name: { $regex: searchString, $options: "i" },
     });
     if (restaurants.length === 0) {
-      return res.json({
+      return res.status(404).json({
         error: `No restaurant found by searching ${searchString} `,
       });
     }
