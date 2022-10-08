@@ -23,7 +23,7 @@ Router.get("/", async (req, res) => {
     await validateRestaurantCity(req.query);
     const restaurants = await RestaurantModel.find(city);
     if (restaurants.length === 0) {
-      return res.status(404).jsonjson({
+      return res.status(404).json({
         error: `No restaurant found in ${city} !! `,
       });
     }
