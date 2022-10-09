@@ -49,7 +49,7 @@ Router.get("/r/:_id", async (req, res) => {
       restaurant: _id,
     });
     if (!food) {
-      return res.status(404).jsonjson({
+      return res.status(404).json({
         error: "No food item found ",
       });
     }
