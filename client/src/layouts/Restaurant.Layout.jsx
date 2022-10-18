@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { TiStarOutline } from "react-icons/ti";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
@@ -37,9 +37,9 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
           "https://b.zmtcdn.com/data/pictures/8/3258/2dda8ff0de3784942603dff9d4a65a69.jpg",
       },
     ],
-    name: "",
-    cuisine: "",
-    address: "",
+    name: "Biryani Blues",
+    cuisine: ["Chinese", "Street Food", "North Indian", "Beverages"],
+    address: "NSP Pitampura",
     restaurantRating: 4.2,
     deliveryRating: 3.5,
   });
@@ -51,13 +51,7 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
       <Navbar />
       <div className="container mx-auto px-4 mt-8 lg:px-20 pb-20">
         <ImageGrid images={restaurant.images} />
-        <RestaurantInfo
-          name=""
-          restaurantRating=""
-          deliveryRating=""
-          cuisine=""
-          address=""
-        />
+        <RestaurantInfo {...restaurant} />
         <div className="my-4 flex flex-wrap gap-3 mx-auto">
           <InfoButton isActive="true">
             <TiStarOutline /> Add Review
