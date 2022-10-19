@@ -8,7 +8,6 @@ import Reactstars from "react-rating-stars-component";
 // importing swiper package css
 import "swiper/css";
 import "swiper/css/navigation";
-import ReactStars from "react-rating-stars-component";
 
 // components
 import MenuCollection from "./MenuCollection";
@@ -121,9 +120,9 @@ const Overview = () => {
               size={24}
               activeColor="#ffd700"
             />
-            {reviews.map((review, index) => {
-              <ReviewCard {...review} key={index} />;
-            })}
+            {reviews.map((review, index) => (
+              <ReviewCard {...review} key={index} />
+            ))}
           </div>
           <div className="my-4">
             <h4 className="font-medium text-lg">Similar Restaurants</h4>

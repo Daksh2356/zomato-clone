@@ -1,5 +1,5 @@
 import React from "react";
-import { AIOutineca, AiOutlineCamera } from "react-icons/ai";
+import { AiOutlineCamera } from "react-icons/ai";
 
 const ImageGrid = (props) => {
   return (
