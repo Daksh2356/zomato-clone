@@ -41,7 +41,20 @@ const Overview = () => {
     "https://b.zmtcdn.com/data/menus/931/931/6d462a04051c0eabb0067149aa84cc64.jpg",
   ]);
 
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([
+    {
+      rating: 3,
+      isRestaurantReview: true,
+      createdAt: "Fri Oct 21 2022 13:12:33 GMT+0530 (India Standard Time)",
+      reviewText: "Nice staff and food",
+    },
+    {
+      rating: 4.5,
+      isRestaurantReview: true,
+      createdAt: "Fri Oct 23 2022 15:00:00 GMT+0530 (India Standard Time)",
+      reviewText: "Very good experience",
+    },
+  ]);
   const { id } = useParams();
 
   const slideConfig = {
@@ -112,14 +125,15 @@ const Overview = () => {
         <div className="flex flex-col-reverse">
           <div className="my-4">
             <h4 className="text-lg font-medium my-3">
-              Rate your delivery experience
+              {restaurant.name} Reviews
             </h4>
-            <Reactstars
+            {/* <Reactstars
               count={5}
               onChange={(newRating) => console.log(newRating)}
               size={24}
+              isHalf={true}
               activeColor="#ffd700"
-            />
+            /> */}
             {reviews.map((review, index) => (
               <ReviewCard {...review} key={index} />
             ))}
@@ -151,24 +165,26 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className="flex flex-col w-full gap-4 md:hidden ">
+        <div className="my-4 flex flex-col w-full gap-4 md:hidden ">
           <MapView
             address="C-3/4 Pitampura"
             title="McDonald's"
             phno="+9123878322"
-            maplocation={getLatLong("28.5805809666,77.3730812967")}
+            mapLocation={getLatLong("28.5805809666,77.3730812967")}
+            LatAndLong="28.5805809666,77.3730812967"
           />
         </div>
       </div>
       <aside
         style={{ height: "fit-content" }}
-        className="hidden md:flex md:w-4/12 flex-col gap-4 sticky rounded-xl top-20 p-3 bg-white shadow-md "
+        className="hidden md:flex md:w-4/12 flex-col gap-4 sticky rounded-xl top-20 p-4 bg-white shadow-md "
       >
         <MapView
           address="C-3/4 Pitampura"
           title="McDonald's"
           phno="+9123878322"
-          maplocation={getLatLong("28.5805809666,77.3730812967")}
+          mapLocation={getLatLong("28.5805809666,77.3730812967")}
+          LatAndLong="28.5805809666,77.3730812967"
         />
       </aside>
     </div>

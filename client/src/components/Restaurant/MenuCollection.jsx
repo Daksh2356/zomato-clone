@@ -8,7 +8,6 @@ const MenuCollection = (props) => {
   const openViewer = () => setIsMenuOpen(true);
   const closeViewer = () => setIsMenuOpen(false);
 
-  console.log(props);
   return (
     <>
       {isMenuOpen && (
@@ -23,7 +22,7 @@ const MenuCollection = (props) => {
         className="w-32 h-32 flex flex-col md:w-48 md:h-48"
         onClick={openViewer}
       >
-        <div className="w-full h-full overflow:hidden rounded-lg">
+        <div className="w-full h-full overflow:hidden rounded-lg py-3">
           <img
             src={props.images[0]}
             alt="menu"
