@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import Reactstars from "react-rating-stars-component";
+// import Reactstars from "react-rating-stars-component";
 
 // importing swiper package css
 import "swiper/css";
@@ -99,7 +99,7 @@ const Overview = () => {
         </div>
         <div className="flex flex-wrap gap-3 my-4">
           <MenuCollection
-            menuitle="Menu"
+            menuTitle="Menu"
             pages={menuimages.length}
             images={menuimages}
           />
