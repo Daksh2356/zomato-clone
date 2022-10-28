@@ -3,6 +3,10 @@ import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { FcGoogle } from "react-icons/fc";
 
+// redux
+import { useDispatch } from "react-redux";
+import { signIn } from "../../redux/reducers/auth/auth.action";
+
 const Signin = ({ isOpen, setIsOpen }) => {
   const [userData, setUserData] = useState({
     email: "",
@@ -17,7 +21,10 @@ const Signin = ({ isOpen, setIsOpen }) => {
     setIsOpen(false);
   };
 
+  const dispatch = useDispatch();
+
   const submit = () => {
+    dispatch(signIn(userData));
     closeModal();
     setUserData({
       email: "",
@@ -87,16 +94,16 @@ const Signin = ({ isOpen, setIsOpen }) => {
                           id="password"
                           value={userData.password}
                           onChange={handleChange}
-                          placeholder="*******"
+                          placeholder="*********"
                           className="w-full border border-gray-400 px-3 py-2 rounded-lg focus:border-zomato-400"
                         />
                       </div>
-                      <button
+                      <div
                         className="w-full text-center bg-zomato-400 text-white p-2 rounded-lg mt-2 cursor-pointer  "
-                        onClick={submit} 
+                        onClick={submit}
                       >
                         Sign In
-                      </button>
+                      </div>
                     </form>
                   </div>
                 </Dialog.Panel>
