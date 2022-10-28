@@ -165,7 +165,8 @@ const Overview = () => {
           </div>
         </div>
 
-        <div className="my-4 flex flex-col w-full gap-4 md:hidden ">
+        <div className="my-4 flex flex-col w-full gap-4 md:hidden
+         sticky ">
           <MapView
             address="C-3/4 Pitampura"
             title="McDonald's"
