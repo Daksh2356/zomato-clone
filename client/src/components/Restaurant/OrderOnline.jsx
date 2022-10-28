@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { AiOutlineCompass } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 
@@ -104,13 +103,7 @@ const OrderOnline = () => {
           </div>
           <section className="flex overflow-y-screen flex-col gap-3 md:gap-5">
             {menu.map((item, index) => (
-              <FoodList
-                {...item}
-                key={index}
-                target={index}
-                onClickHandler={onClickHandler}
-                selected={selected}
-              />
+              <FoodList {...item} key={index} target={index} />
             ))}
           </section>
         </div>
