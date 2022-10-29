@@ -33,7 +33,7 @@ const Signin = ({ isOpen, setIsOpen }) => {
   };
 
   const googleSignIn = () => {
-    window.location.href = "https://localhost:4000/auth/google";
+    window.location.href = "http://localhost:4000/auth/google";
   };
 
   return (
