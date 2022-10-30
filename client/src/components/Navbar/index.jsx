@@ -3,10 +3,16 @@ import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 // components
 import Signin from "../Auth/Signin";
 import Signup from "../Auth/Signup";
+
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { signOut } from "../../redux/reducers/auth/auth.action";
+import { clearUser } from "../../redux/reducers/user/user.action";
 
 const MobileNav = ({
   user,
@@ -22,6 +28,16 @@ const MobileNav = ({
 
   const SignUpFun = () => {
     signUp();
+    setIsDropDownOpen(false);
+  };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignOut = async () => {
+    await dispatch(signOut());
+    await dispatch(clearUser());
+    navigate("/delivery");
     setIsDropDownOpen(false);
   };
 
@@ -52,7 +68,7 @@ const MobileNav = ({
             </div>
             {isDropDownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-16 w-36 z-20 flex flex-col gap-2 bg-white border border-gray-200">
-                <button>Sign out</button>
+                <button onClick={SignOut}>Sign out</button>
               </div>
             )}
           </>
@@ -93,6 +109,17 @@ const LargeNav = ({
     signUp();
     setIsDropDownOpen(false);
   };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignOut = async () => {
+    await dispatch(signOut());
+    await dispatch(clearUser());
+    navigate("/delivery");
+    setIsDropDownOpen(false);
+  };
+
   return (
     <div className="w-full items-center justify-between hidden lg:flex px-14">
       <div className="gap-4 items-center justify-around flex">
@@ -141,7 +168,7 @@ const LargeNav = ({
             </div>
             {isDropDownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-16 -right-0 w-36 z-20 flex flex-col gap-2 bg-white border border-gray-200">
-                <button>Sign out</button>
+                <button onClick={SignOut}>Sign out</button>
               </div>
             )}
           </>
@@ -174,9 +201,11 @@ const Navbar = () => {
   const openSignUpModal = () => setOpenSignUp(true);
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const user = {
-    // fullName: "Daksh",
-  };
+  // const user = {
+  //   fullName: "Daksh",
+  // };
+
+  const user = useSelector((globalState) => globalState.user);
 
   return (
     <>

@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 // redux
 import { useDispatch } from "react-redux";
 import { signUp } from "../../redux/reducers/auth/auth.action";
+import { getSelf } from "../../redux/reducers/user/user.action";
 
 const Signup = ({ isOpen, setIsOpen }) => {
   const [userData, setUserData] = useState({
@@ -24,9 +25,10 @@ const Signup = ({ isOpen, setIsOpen }) => {
 
   const dispatch = useDispatch();
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    dispatch(signUp(userData));
+    await dispatch(signUp(userData));
+    await dispatch(getSelf());
     closeModal();
     setUserData({ fullName: "", email: "", password: "" });
   };
