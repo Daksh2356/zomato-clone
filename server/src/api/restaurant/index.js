@@ -21,7 +21,7 @@ Router.get("/", async (req, res) => {
     //http://localhost:4000/restaurant/?city=ncr
     const { city } = req.query;
     await validateRestaurantCity(req.query);
-    const restaurants = await RestaurantModel.find({city});
+    const restaurants = await RestaurantModel.find({ city });
     if (restaurants.length === 0) {
       return res.status(404).json({
         error: `No restaurant found in ${city} !! `,
@@ -47,7 +47,7 @@ Router.get("/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
     await validateId(req.params);
-    const restaurant = await RestaurantModel.findById(_id);
+    const restaurant = await RestaurantModel.find({ id: _id });
     if (!restaurant) {
       return res.status(404).json({
         error: "No restaurant found !! ",
