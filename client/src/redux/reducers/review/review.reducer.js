@@ -1,12 +1,12 @@
 import { GET_REVIEW, POST_REVIEW } from "./review.type";
 
-const intialState = {
+const initialState = {
   reviews: {
-    reviews: [],
+    review: [],
   },
 };
 
-const reviewReducer = (state = intialState, action) => {
+const reviewReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_REVIEW:
       return {
@@ -16,7 +16,9 @@ const reviewReducer = (state = intialState, action) => {
     case POST_REVIEW:
       return {
         ...state,
-        reviews: [action.payload, ...state.reviews.reviews],
+        reviews: {
+          review: [action.payload, ...state.reviews.review],
+        },
       };
     default:
       return {

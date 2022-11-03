@@ -18,7 +18,7 @@ const ReviewSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    ratingText: {
+    reviewText: {
       type: String,
       required: true,
     },
