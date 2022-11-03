@@ -40,12 +40,12 @@ const RestaurantLayout = ({ children: Component, ...props }) => {
         ...data.payload.restaurant,
       }));
 
-      // dispatch(getImage(data.payload.restaurant.photos)).then((data) => {
-      //   setRestaurant((prev) => ({
-      //     ...prev,
-      //     images: data.payload.images,
-      //   }));
-      // });
+      dispatch(getImage(data.payload.restaurant.photos)).then((data) => {
+        setRestaurant((prev) => ({
+          ...prev,
+          images: data.payload.images,
+        }));
+      });
     });
   }, []);
   return (
