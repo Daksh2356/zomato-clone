@@ -91,7 +91,7 @@ const Overview = () => {
             </span>
           </Link>
         </div>
-        <div className="flex flex-wrap gap-3 my-4">
+        <div className="flex flex-wrap gap-3 my-6">
           <MenuCollection
             menuTitle="Menu"
             pages={menuimages.length}

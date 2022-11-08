@@ -19,11 +19,13 @@ import RestaurantLayout from "./layouts/Restaurant.Layout";
 // redux
 import { useDispatch } from "react-redux";
 import { getSelf } from "./redux/reducers/user/user.action";
+import { getCart } from "./redux/reducers/cart/cart.action";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSelf());
+    dispatch(getCart());
   }, [localStorage]);
   return (
     <>

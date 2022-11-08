@@ -18,7 +18,7 @@ const Router = express.Router();
 
 Router.get("/", async (req, res) => {
   try {
-    //http://localhost:4000/restaurant/?city=ncr
+    //`${process.env.REACT_APP_CLIENT_URL}restaurant/?city=ncr`
     const { city } = req.query;
     await validateRestaurantCity(req.query);
     const restaurants = await RestaurantModel.find({ city });
