@@ -1,11 +1,28 @@
 import React from "react";
 import { BsTrashFill } from "react-icons/bs";
 
-const FoodItem = (props) => {
-  const deleteFoodFromCart = () => {};
+// redux
+import { useDispatch } from "react-redux";
+import {
+  increement_qty,
+  decreement_qty,
+  deleteFromCart,
+} from "../../../redux/reducers/cart/cart.action";
 
-  const increement = () => {};
-  const decreement = () => {};
+const FoodItem = (props) => {
+  const dispatch = useDispatch();
+
+  const deleteFoodFromCart = () => {
+    dispatch(deleteFromCart(props._id));
+  };
+
+  const increement = () => {
+    dispatch(increement_qty(props._id));
+  };
+  const decreement = () => {
+    if (props.quantity === 1) return;
+    dispatch(decreement_qty(props._id));
+  };
   return (
     <>
       <div className="flex items-center justify-between">

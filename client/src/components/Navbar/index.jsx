@@ -3,10 +3,16 @@ import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { RiSearch2Line } from "react-icons/ri";
+import { Link, useNavigate } from "react-router-dom";
 
 // components
 import Signin from "../Auth/Signin";
 import Signup from "../Auth/Signup";
+
+// redux
+import { useSelector, useDispatch } from "react-redux";
+import { signOut } from "../../redux/reducers/auth/auth.action";
+import { clearUser } from "../../redux/reducers/user/user.action";
 
 const MobileNav = ({
   user,
@@ -25,14 +31,26 @@ const MobileNav = ({
     setIsDropDownOpen(false);
   };
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignOut = async () => {
+    await dispatch(signOut());
+    await dispatch(clearUser());
+    navigate("/delivery");
+    setIsDropDownOpen(false);
+  };
+
   return (
     <div className="flex w-full items-center justify-between lg:hidden">
       <div className="w-28">
-        <img
-          src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-          alt="logo"
-          className="w-full h-full"
-        />
+        <Link to="/">
+          <img
+            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+            alt="logo"
+            className="w-full h-full"
+          />
+        </Link>
       </div>
       <div className="flex items-center gap-3 relative">
         <button className="bg-zomato-400 text-white py-2 px-3 rounded-full">
@@ -52,7 +70,7 @@ const MobileNav = ({
             </div>
             {isDropDownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-16 w-36 z-20 flex flex-col gap-2 bg-white border border-gray-200">
-                <button>Sign out</button>
+                <button onClick={SignOut}>Sign out</button>
               </div>
             )}
           </>
@@ -93,15 +111,28 @@ const LargeNav = ({
     signUp();
     setIsDropDownOpen(false);
   };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const SignOut = async () => {
+    await dispatch(signOut());
+    await dispatch(clearUser());
+    navigate("/delivery");
+    setIsDropDownOpen(false);
+  };
+
   return (
     <div className="w-full items-center justify-between hidden lg:flex px-14">
       <div className="gap-4 items-center justify-around flex">
         <div className="w-20">
-          <img
-            src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
-            alt="logo"
-            className="w-full h-full"
-          />
+          <Link to="/">
+            <img
+              src="https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png"
+              alt="logo"
+              className="w-full h-full"
+            />
+          </Link>
         </div>
       </div>
       <div className="w-3/4 bg-white shadow-md p-3 flex items-center gap-3 border border-gray-200 rounded">
@@ -141,7 +172,7 @@ const LargeNav = ({
             </div>
             {isDropDownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-16 -right-0 w-36 z-20 flex flex-col gap-2 bg-white border border-gray-200">
-                <button>Sign out</button>
+                <button onClick={SignOut}>Sign out</button>
               </div>
             )}
           </>
@@ -174,9 +205,11 @@ const Navbar = () => {
   const openSignUpModal = () => setOpenSignUp(true);
 
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-  const user = {
-    // fullName: "Daksh",
-  };
+  // const user = {
+  //   fullName: "Daksh",
+  // };
+
+  const user = useSelector((globalState) => globalState.user);
 
   return (
     <>
