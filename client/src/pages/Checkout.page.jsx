@@ -1,10 +1,16 @@
 import React from "react";
+
+// layouts
 import CheckoutLayout from "../layouts/Checkout.Layout";
+
+// react-icons
 import { BsShieldFillCheck } from "react-icons/bs";
 
 // components
 import FoodItem from "../components/Restaurant/Cart/FoodItem";
 import AddressList from "../components/Checkout/AddressList";
+
+// redux
 import { useSelector } from "react-redux";
 
 const Checkout = () => {

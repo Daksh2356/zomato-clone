@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+// react-icons
 import { AiTwotoneStar } from "react-icons/ai";
-import { useState } from "react";
 
 //  redux
 import { useDispatch } from "react-redux";
 import { getImage } from "../redux/reducers/image/image.action";
-import { useEffect } from "react";
 
 const RestaurantCard = (props) => {
   const [image, setImage] = useState({

@@ -4,6 +4,7 @@ import passport from "passport";
 import session from "express-session";
 import cors from "cors";
 import helmet from "helmet";
+
 // private route authorization config
 import privateRouteConfig from "./config/route.config";
 

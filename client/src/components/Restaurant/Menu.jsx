@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import MenuCollection from "./MenuCollection";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { getImage } from "../../redux/reducers/image/image.action";
 
 const Menu = () => {

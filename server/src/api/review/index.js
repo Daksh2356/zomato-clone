@@ -1,6 +1,10 @@
 import express from "express";
 import passport from "passport";
+
+// database models
 import { ReviewModel } from "../../database/allModels";
+
+// validations
 import { validateId } from "../../validation/common.validation";
 
 const Router = express.Router();

@@ -1,6 +1,10 @@
 import React from "react";
+
+// react-icons
 import { MdContentCopy } from "react-icons/md";
 import { FaDirections } from "react-icons/fa";
+
+// react-leaflet
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 
 const MapView = (props) => {
@@ -35,6 +39,7 @@ const MapView = (props) => {
           <a
             href={`https://www.google.com/maps/dir/?api=1&destination=${props.LatAndLong}`}
             target="_blank"
+            rel="noreferrer"
             className="flex items-center gap-2 px-3 py-2 text-gray-700 border border-gray-400 rounded-lg"
           >
             <span>

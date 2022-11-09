@@ -1,4 +1,6 @@
 import React from "react";
+
+// react-icons
 import { TiStar } from "react-icons/ti";
 
 const MenuSimilarRestaurantCard = (props) => {

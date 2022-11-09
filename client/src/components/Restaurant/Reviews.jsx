@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 // components
 import ReviewCard from "./Reviews/ReviewCard";
 import AddReviewCard from "./Reviews/AddReviewCard";
 
+// redux
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getReview } from "../../redux/reducers/review/review.action";
-import { useSelector } from "react-redux";
 
 const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-
   const { id } = useParams();
   const dispatch = useDispatch();
+  
+  const [reviews, setReviews] = useState([]);
+
 
   const updatedReviews = useSelector(
     (globalState) => globalState.review.reviews.review

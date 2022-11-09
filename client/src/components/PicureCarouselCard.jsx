@@ -1,4 +1,6 @@
 import React from "react";
+
+// react-icons
 import { IoMdArrowDropright } from "react-icons/io";
 
 const PicureCarouselCard = (props) => {

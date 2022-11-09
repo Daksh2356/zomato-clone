@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+
+// react-icons
 import { IoMdArrowDropright } from "react-icons/io";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-// import Reactstars from "react-rating-stars-component";
 
 // importing swiper package css
 import "swiper/css";
@@ -22,12 +24,13 @@ import { getReview } from "../../redux/reducers/review/review.action";
 import { getImage } from "../../redux/reducers/image/image.action";
 
 const Overview = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+
   const [restaurant, setRestaurant] = useState({ cuisine: [] });
   const [menuimages, setMenuImages] = useState([]);
   const [reviews, setReviews] = useState([]);
-
-  const { id } = useParams();
-  const dispatch = useDispatch();
+  
 
   const reduxState = useSelector(
     (globalState) => globalState.restaurant.selectedRestaurant.restaurant

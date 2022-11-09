@@ -1,3 +1,4 @@
+// redux types
 import { GET_FOOD, GET_FOOD_LIST } from "./food.type";
 
 import axios from "axios";

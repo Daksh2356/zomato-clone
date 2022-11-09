@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+// react-icons
 import { FaUserAlt } from "react-icons/fa";
 import { HiLocationMarker } from "react-icons/hi";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -21,6 +23,9 @@ const MobileNav = ({
   signIn,
   signUp,
 }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const SignInFun = () => {
     signIn();
     setIsDropDownOpen(false);
@@ -30,9 +35,6 @@ const MobileNav = ({
     signUp();
     setIsDropDownOpen(false);
   };
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const SignOut = async () => {
     await dispatch(signOut());
@@ -102,6 +104,9 @@ const LargeNav = ({
   signIn,
   signUp,
 }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const SignInFun = () => {
     signIn();
     setIsDropDownOpen(false);
@@ -111,9 +116,6 @@ const LargeNav = ({
     signUp();
     setIsDropDownOpen(false);
   };
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const SignOut = async () => {
     await dispatch(signOut());

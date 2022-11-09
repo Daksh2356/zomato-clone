@@ -1,6 +1,10 @@
 import express from "express";
 import passport from "passport";
+
+// database models
 import { UserModel } from "../../database/allModels";
+
+// validations
 import {
   validateSignin,
   validateSignup,

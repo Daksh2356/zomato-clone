@@ -1,6 +1,7 @@
-import React from "react";
-import { Fragment, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+
+// react-icons
 import { FcGoogle } from "react-icons/fc";
 
 // redux
@@ -9,6 +10,8 @@ import { signUp } from "../../redux/reducers/auth/auth.action";
 import { getSelf } from "../../redux/reducers/user/user.action";
 
 const Signup = ({ isOpen, setIsOpen }) => {
+  const dispatch = useDispatch();
+
   const [userData, setUserData] = useState({
     fullName: "",
     email: "",
@@ -22,8 +25,6 @@ const Signup = ({ isOpen, setIsOpen }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
-  const dispatch = useDispatch();
 
   const submit = async (e) => {
     e.preventDefault();

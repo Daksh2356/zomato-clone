@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+// react-icons
 import { AiOutlineCompass } from "react-icons/ai";
 import { BiTimeFive } from "react-icons/bi";
 
@@ -12,6 +14,7 @@ import { getMenu } from "../../redux/reducers/food/food.action.js";
 import { useDispatch, useSelector } from "react-redux";
 
 const OrderOnline = () => {
+  const dispatch = useDispatch();
   const [menu, setMenu] = useState([]);
   const [selected, setSelected] = useState("");
 
@@ -21,7 +24,6 @@ const OrderOnline = () => {
     }
     return;
   };
-  const dispatch = useDispatch();
 
   const restaurant = useSelector(
     (globalState) => globalState.restaurant.selectedRestaurant.restaurant

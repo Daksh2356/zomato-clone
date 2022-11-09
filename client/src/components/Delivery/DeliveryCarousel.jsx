@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+// components
 import DeliveryCategoryCard from "./DeliveryCategoryCard";
 
 const DeliveryCarousel = () => {
