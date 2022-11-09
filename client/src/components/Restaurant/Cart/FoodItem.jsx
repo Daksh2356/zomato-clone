@@ -1,4 +1,6 @@
 import React from "react";
+
+// react- icons
 import { BsTrashFill } from "react-icons/bs";
 
 // redux

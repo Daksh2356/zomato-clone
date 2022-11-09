@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// components
+import FoodItem from "./FoodItem";
+
+// react-icons
 import { IoCloseSharp } from "react-icons/io5";
 import { IoMdArrowDropup, IoMdArrowDropright } from "react-icons/io";
 
-import { useNavigate } from "react-router-dom";
-
 // redux
-import { useSelector, useDispatch } from "react-redux";
-
-// components
-// import FoodList from "../../OrderOnline/FoodList";
-import FoodItem from "./FoodItem";
+import { useSelector } from "react-redux";
 
 const CartData = ({ toggle }) => {
   const cart = useSelector((globalState) => globalState.cart.cart);
   const navigate = useNavigate();
-  const continueToCheckout = () => navigate("/checkout/orders");
+  const continueToCheckout = () => {
+    if (!localStorage.zomatoUser) {
+      return alert("Please sign in for purchasing");
+    }
+    navigate("/checkout/orders");
+  };
   return (
     <>
       <div className="flex items-center justify-between">

@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+
+import classnames from "classnames";
+
+// react-icons
 import { RiShoppingBag3Line } from "react-icons/ri";
 import { IoFastFoodOutline, IoNutritionOutline } from "react-icons/io5";
 import { BiDrink } from "react-icons/bi";
-import classnames from "classnames";
 
 const MobileTabs = () => {
+  const { type } = useParams();
+
   const [allTypes] = useState([
     {
       id: "delivery",
@@ -28,7 +33,6 @@ const MobileTabs = () => {
       name: "Nutrition",
     },
   ]);
-  const { type } = useParams();
 
   return (
     <>
@@ -63,6 +67,8 @@ const MobileTabs = () => {
 };
 
 const LargeTabs = () => {
+  const { type } = useParams();
+
   const [allTypes] = useState([
     {
       id: "delivery",
@@ -102,7 +108,6 @@ const LargeTabs = () => {
     },
   ]);
 
-  const { type } = useParams();
   return (
     <>
       <div className="hidden lg:flex gap-14 mx-auto container px-20 my-8 ">

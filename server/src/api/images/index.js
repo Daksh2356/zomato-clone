@@ -1,6 +1,9 @@
 import express from "express";
 import multer from "multer";
+
+// database models
 import { ImageModel } from "../../database/allModels";
+
 import { s3Upload } from "../../utils/s3";
 
 const Router = express.Router();

@@ -1,3 +1,5 @@
+// redux types
+
 import {
   GET_CART,
   //   UPDATE_CART,

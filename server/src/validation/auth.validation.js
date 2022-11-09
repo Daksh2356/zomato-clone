@@ -5,7 +5,7 @@ export const validateSignup = (userData) => {
     fullName: joi.string().required().min(5).max(20),
     email: joi.string().email().required(),
     password: joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")),
-    // can contain characters in the range a-z, A-Z, 0-9 and min no of characters would range frmo 3 and 30
+    // can contain characters in the range a-z, A-Z, 0-9 and min no of characters would range from 3 and 30
     adress: joi
       .array()
       .items(joi.object({ details: joi.string(), for: joi.string() })),

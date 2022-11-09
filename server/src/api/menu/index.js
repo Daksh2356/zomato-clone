@@ -1,6 +1,9 @@
 import express from "express";
 
+// database models
 import { ImageModel, MenuModel } from "../../database/allModels";
+
+// validations
 import { validateId } from "../../validation/common.validation";
 
 const Router = express.Router();

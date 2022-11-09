@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 import ReactStars from "react-rating-stars-component";
+
+// react-icons
 import { AiOutlinePlus } from "react-icons/ai";
 
 // redux
+import { useDispatch, useSelector } from "react-redux";
 import { getFood } from "../../redux/reducers/food/food.action.js";
 import { getImage } from "../../redux/reducers/image/image.action";
 import { addToCart } from "../../redux/reducers/cart/cart.action.js";
-import { useDispatch, useSelector } from "react-redux";
 
 const FoodItem = (props) => {
-  const [food, setFood] = useState([]);
   const dispatch = useDispatch();
+  const [food, setFood] = useState([]);
 
   const cart = useSelector((globalState) => globalState.cart.cart);
 

@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const CheckoutNavbar = () => {
-  const user = useSelector((globalState) => globalState.user);
+// react-icons
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
+// redux
+import { useSelector } from "react-redux";
+
+const CheckoutNavbar = () => {
   const navigate = useNavigate();
+  const user = useSelector((globalState) => globalState.user);
 
   return (
     <div className="p-4 flex bg-white shadow-md w-full items-center">

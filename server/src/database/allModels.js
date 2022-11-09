@@ -1,3 +1,5 @@
+// database models
+
 import { FoodModel } from "./Food";
 import { RestaurantModel } from "./Restaurant";
 import { MenuModel } from "./Menu";

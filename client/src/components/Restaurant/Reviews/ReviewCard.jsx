@@ -1,12 +1,18 @@
-import React, { useState } from "react";
-import { TiStarFullOutline } from "react-icons/ti";
+import React from "react";
 import dayjs from "dayjs";
 import relativeime from "dayjs/plugin/relativeTime";
 
+// react-icons
+import { TiStarFullOutline } from "react-icons/ti";
+
+// redux
+import { useSelector } from "react-redux";
+
+// using dayjs plugin
 dayjs.extend(relativeime);
 
 const ReviewCard = (props) => {
-  const [user, setUser] = useState("Daksh");
+  const user = useSelector((globalState) => globalState.user);
 
   return (
     <div className="flex flex-col gap-3 my-3 pb-3 border-b border-gray-200">
@@ -20,7 +26,7 @@ const ReviewCard = (props) => {
             />
           </div>
           <div className="flex flex-col">
-            <h3 className="font-semibold text-lg ">{user}</h3>
+            <h3 className="font-semibold text-lg ">{user.fullName}</h3>
             <small className="text-gray-500">
               5 Reviews &#8226; 3 Followers
             </small>

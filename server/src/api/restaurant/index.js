@@ -1,5 +1,9 @@
 import express from "express";
+
+// database models
 import { RestaurantModel } from "../../database/allModels";
+
+//validations
 import { validateId } from "../../validation/common.validation";
 import {
   validatesearchString,

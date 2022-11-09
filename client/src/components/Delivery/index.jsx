@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 import DeliveryCarousel from "./DeliveryCarousel";
@@ -6,7 +6,6 @@ import RestaurantCard from "../RestaurantCard";
 
 // redux
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 const Delivery = () => {
   const [restaurantList, setRestaurantList] = useState([]);

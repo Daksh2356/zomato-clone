@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
-import { useState } from "react";
 
 function CheckIcon(props) {
   return (

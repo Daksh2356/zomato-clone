@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// reducers type
+// redux types
 import { GET_USER, SELF, CLEAR_USER } from "./user.type";
 
 export const getUser = (_id) => async (dispatch) => {

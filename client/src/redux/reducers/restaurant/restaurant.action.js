@@ -1,6 +1,6 @@
 import axios from "axios";
 
-// reducer types
+// redux types
 import { GET_RESTAURANT, GET_SPECIFIC_RESTAURANT } from "./restaurant.type";
 
 export const getAllRestros = () => async (dispatch) => {
