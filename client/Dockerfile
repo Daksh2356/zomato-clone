@@ -7,8 +7,6 @@ RUN npm install
 
 COPY . ./
 
-ENV REACT_APP_CLIENT_URL=http://localhost:4000/
-
 RUN npm run build
 
 FROM nginx

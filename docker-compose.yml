@@ -25,7 +25,6 @@ services:
       - AWS_S3_SECRET_KEY=awyADPnP+4InWbhZS2WfHOjNuM5bgHmhvGBc7y4m
       - GOOGLE_CLIENT_ID=629980427902-hl8qologt2r1h9rvhugt7a274au7842h.apps.googleusercontent.com
       - GOOGLE_CLIENT_SECRET=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
-      - REACT_APP_CLIENT_URL=http://localhost:4000/
     ports:
       - "4000:4000"
   client:
@@ -35,8 +34,6 @@ services:
     volumes:
       - /app/node_modules
       - ./client:/app
-    environment:
-      - REACT_APP_CLIENT_URL=http://localhost:4000/
     ports:
       - "3000:3000"
 

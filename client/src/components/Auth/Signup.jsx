@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
+import { API_URL } from "../../key";
 
 // react-icons
 import { FcGoogle } from "react-icons/fc";
@@ -34,7 +35,7 @@ const Signup = ({ isOpen, setIsOpen }) => {
     setUserData({ fullName: "", email: "", password: "" });
   };
   const googleSignUp = () => {
-    window.location.href = `${process.env.REACT_APP_CLIENT_URL}auth/google`;
+    window.location.href = `${API_URL}auth/google`;
   };
 
   return (
