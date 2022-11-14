@@ -8,6 +8,10 @@ var _passport = _interopRequireDefault(require("passport"));
 
 var _expressSession = _interopRequireDefault(require("express-session"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
+var _helmet = _interopRequireDefault(require("helmet"));
+
 var _route = _interopRequireDefault(require("./config/route.config"));
 
 var _google = _interopRequireDefault(require("./config/google.config"));
@@ -43,6 +47,10 @@ _dotenv.default.config(); // authoraization configuration
 (0, _google.default)(_passport.default);
 const zomato = (0, _express.default)();
 const port = 4000;
+zomato.use((0, _cors.default)({
+  origin: "http://localhost:3000"
+}));
+zomato.use((0, _helmet.default)());
 zomato.use(_express.default.json());
 zomato.use((0, _expressSession.default)({
   secret: process.env.JWTSECRET,
