@@ -1,0 +1,1 @@
+ssh "ubuntu@65.1.134.109" "cd app/zomato-clone-gitlab && sudo docker-compose stop && git pull && sudo docker-compose up -d --build && exit"
