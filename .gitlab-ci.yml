@@ -1,7 +1,6 @@
 prod_job:
     stage: deploy
-    tags:
-        - docker
+
     only:
         - main
 
