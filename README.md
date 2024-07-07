@@ -62,9 +62,9 @@ npm start
 After completing the installation steps, you can use the application by navigating to http://localhost:3000 in your web browser. The backend server runs on http://localhost:4000, while the frontend runs at port 3000.
 ## Screenshots
 
-[![home-page.jpg](https://i.postimg.cc/CKnj8pmt/home-page.jpg)](https://postimg.cc/d7vkMpMm)
+[![home.jpg](https://i.postimg.cc/43FHBLFc/home.jpg)](https://postimg.cc/Z9pqqcmY)
 
-[![restaurant-page.jpg](https://i.postimg.cc/4dCpb203/restaurant-page.jpg)](https://postimg.cc/XZ8ZnL4M)
+[![restaurant.jpg](https://i.postimg.cc/zvTLDJDw/restaurant.jpg)](https://postimg.cc/Lg64NF1h)
 
 [![restaurant-overview.jpg](https://i.postimg.cc/xTgyDRXs/restaurant-overview.jpg)](https://postimg.cc/1fnNDDc6)
 
