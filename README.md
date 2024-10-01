@@ -6,19 +6,19 @@ This project is a clone of the Zomato website, developed using modern web techno
 
 ## Features
 
-- Frontend: Built with React JS and styled using Tailwind CSS.
-- Backend: Powered by Node JS with efficient state management using Redux.
-- AWS Integration: Deployed on AWS EC2 instances with image uploads and display handled by S3 buckets.
-- CI/CD: Implemented continuous integration and deployment using GitLab.
-
+- <b>Interactive User Interface</b>: Built with React JS and styled using Tailwind CSS for a responsive and dynamic user experience.
+- <b>State Management</b>: Used Redux for efficient state management, ensuring seamless real-time updates across the app.
+- <b>Backend</b>: Developed with Node JS and Express, providing a scalable backend for API management and user data handling.
+- <b>Cloud Integration</b>: Deployed on AWS EC2 with AWS S3 for secure image storage and efficient content delivery.
+- <b>CI/CD</b>: Automated deployment and testing with GitLab CI/CD, ensuring smooth updates and continuous integration.
 
 ## Tech Stack
 
-- Frontend: React JS, Tailwind CSS, Redux
-- Backend: Node JS, Express
-- Database: MongoDB
-- Cloud Services: AWS EC2, AWS S3
-- CI/CD: GitLab
+- <b> Frontend</b>: React JS, Tailwind CSS, Redux
+- <b> Backend</b>: Node JS, Express
+- <b> Database</b>: MongoDB
+- <b> Cloud Services</b>: AWS EC2, AWS S3
+- <b> CI/CD</b>: GitLab
 
 ## Installation
 
